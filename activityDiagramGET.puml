@@ -1,0 +1,23 @@
+@startuml
+title GET /todos
+
+|Client|
+start
+:Send HTTP GET Request /todos;
+
+|Router|
+:Receive GET Request;
+:Route to Controller.getTodos;
+
+|Controller|
+:Handle GET Request;
+:Retrieve Todos from Database;
+:Return Todos List;
+
+|Router|
+:Send Response with Todos List;
+
+|Client|
+:Receive Todos List;
+stop
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title POST /todos
+
+|Client|
+start
+:Send HTTP POST Request /todos with Todo Data;
+
+|Router|
+:Receive POST Request;
+:Route to Controller.createTodo;
+
+|Controller|
+:Handle POST Request;
+if (Todo Data is valid?) then (yes)
+  :Create New Todo in Database;
+  :Return Success Response;
+else (no)
+  :Return Error Response;
+endif
+
+|Router|
+:Send Response;
+
+|Client|
+:Receive Response;
+stop
+@enduml
